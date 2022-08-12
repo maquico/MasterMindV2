@@ -14,10 +14,21 @@ AUTORES: ANGEL MORENO ID:1104666
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <Windows.h>
 // #include "TextTable.h"
 
 using namespace std;
 
+void GoToXY(int x, int y)
+{
+	HANDLE hCon;
+	hCon = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	COORD dwPos;
+	dwPos.X = x;
+	dwPos.Y = y;
+	SetConsoleCursorPosition(hCon, dwPos);
+}
 string GenerarNumRand() {
 
 	int random;
@@ -100,64 +111,102 @@ int ValidarClave(string intento) {
 int Jugar(string clave) {
 
 	string intento, pista;
+	char cIntento;
 	bool numDentro = false;
+	int tabla1x = 18;
+	int tablay = 8;
+	int tabla2x = 59;
 
-	for (int i = 0; i < 10; i++)
-	{
-		cout << "Intento #" << i + 1 << " de 10: \n\n";
-		cout << "Ingrese el numero de 4 digitos: ";
-		cin >> intento;
+	cout << "--------------------------Bienvenido a MasterMind--------------------------\n";
+	cout << " Vaya introduciendo numero por numero, uno por uno. Luego de escribir un numero\n";
+	cout << " de la clave de enter para introducir el otro hasta en introducir los 4 numeros\n";
+	cout << " por intento. No introducir mas de 1 numero por columna.  Clave: " << clave << ".\n\n";
+	cout << "|         |---Tabla Juego---|                   |---Tabla Pista---|             |\n";
+	cout << "|-------------------------------------------------------------------------------|\n";
+	cout << "| Calificacion |  A  |  B  |  C  |  D  |  || | Intentos |  A  |  B  |  C  |  D  |\n"; 
 
+	for (int i = 10, m=9; i >0; i--, m-=2)
+	{	
+		if (i != 10 && i!=1) {
+			cout << "|    0" << (i) << "        |     |     |     |     |  || |    0" << (i-m) << "    |     |     |     |     |\n";
+			cout << "|--------------|-----|-----|-----|-----|  || |----------|-----|-----|-----|-----|\n";
+		}
 		
-
-		switch (ValidarClave(intento))
+		else if(i==10)
 		{
-		case 0:
-			//longitud erronea;
-			cout << "Longitud erronea\n\n";
-			i--;
-			break;
-		case 1:
-			//repetidos
-			cout << "Numeros repetidos\n\n";
-			i--;
-			break;
-		case 2:
-			//hay letras
-			cout << "Por favor no pongas letras\n\n";
-			i--;
-			break;
-		default:
-			cout << "Duro\n\n";
-			for (int j = 0; j < 4; j++) // clave 6513           intento 6415
-			{
-				for (int k = 0; k < 4 && !numDentro; k++)
-				{
-					if (intento[j] == clave[k] && j == k)
-					{
-						pista += "C";
-						numDentro = true;
-					}
-					else if (intento[j] == clave[k])
-					{
-						pista += "F";
-						numDentro = true;
-					}
-				}
-				if (!numDentro)
-				{
-					pista += "X";
-				}
-				else
-				{
-					numDentro = false;
-				}
-			}
-			cout << pista;
-			pista = "";
-			break;
-		}	
+			cout << "|    " << (i) << "        |     |     |     |     |  || |    0" << (i-m) << "    |     |     |     |     |\n";
+			cout << "|--------------|-----|-----|-----|-----|  || |----------|-----|-----|-----|-----|\n";
+		}
+		else if (i == 1) 
+		{
+			cout << "|    0" << (i) << "        |     |     |     |     |  || |    " << (i - m) << "    |     |     |     |     |\n";
+			cout << "|--------------|-----|-----|-----|-----|  || |----------|-----|-----|-----|-----|\n";
+		}
 	}
+	cout << "---------------------------------------------------------------------------------\n";
+
+	for (int j = 0; j < 10; j++)
+	{
+		if (intento != clave)
+		{
+			
+			GoToXY(0, 30); 
+			cout << "Numero a ingresar :                                                                ";
+			GoToXY(20, 30);
+			cin >> intento;
+			switch (ValidarClave(intento))
+			{
+			case 0:
+				//longitud erronea;
+				cout << "Longitud erronea\n\n";
+				j--;
+				break;
+			case 1:
+				//repetidos
+				cout << "Numeros repetidos\n\n";
+				j--;
+				break;
+			case 2:
+				//hay letras
+				cout << "Por favor no pongas letras\n\n";
+				j--;
+				break;
+			default:
+				cout << "Duro\n\n";
+				intento += cIntento;
+				GoToXY(tabla1x, tablay);
+				cout << cIntento;
+				for (int k = 0; k < 4; k++) // clave 6513           intento 6415
+				{
+					for (int l = 0; l < 4 && !numDentro; l++)
+					{
+						if (intento[k] == clave[l] && k == l)
+						{
+							pista += "C";
+							numDentro = true;
+						}
+						else if (intento[k] == clave[l])
+						{
+							pista += "F";
+							numDentro = true;
+						}
+					}
+					if (!numDentro)
+					{
+						pista += "X";
+					}
+					else
+					{
+						numDentro = false;
+					}
+				}
+				cout << pista;
+				pista = "";
+				break;
+			}
+		}
+		}
+		
 	return 0;
 }
 
@@ -167,7 +216,6 @@ int main()
 	string numRand;
 	bool salir = false;
 	numRand = GenerarNumRand();
-	cout << numRand;
 	Jugar(numRand);
 	
 	//5a64
