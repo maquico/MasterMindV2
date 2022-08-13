@@ -250,14 +250,73 @@ int main()
 	string numRand;
 	bool salir = false;
 	numRand = GenerarNumRand();
-	Jugar(numRand);
+	//Jugar(numRand);
+	string opcion = "0";
 	
 	//5a64
-	do
-	{
+	do {
+		system("cls");
+		cout << "Bienvenido al Juego MasterMinf. En este juego desafiara tu mente. Elige una de las siguientes opciones: \n\n1) Ir al Juego.\n2) Ver las Instrucciones.\n0) Para Salir\n\nOpcion Elegida: ";
+		cin >> opcion;
+		if (isdigit(opcion[0]) && opcion.length() == 1) {
+			int op = stoi(opcion);
 
-	} while (true);
+			switch (op)
+			{
+			case 1:
+				system("cls");
+				if (Jugar(numRand) == 1)
+				{
+					GoToXY(0, 31);
+					cout << "\n\n!!!!!!!!!Felicidades!!!!!!!!!";
+					cout << "\nHa Adivinado la Clave.";
+					cout << "\nPresione cualquier letra para continuar.";
+					_getch();
+				}
+				else
+				{
+					GoToXY(0, 31);
+					cout << "\n\n!!!!!!!!!Lo Sentimos, Ha Perdido!!!!!!!!!";
+					cout << "\nNo Ha Adivinado la Clave y ha agotado todos sus turnos.\n";
+					cout << "\nPresione cualquier letra para continuar.";
+					_getch();
+				}
+				break;
 
+			case 2:
+				system("cls");
+				cout << "En el juego MasterMind, se busca adivinar una contraseña de 4 digitos, donde ninguno se repite, y el programa le va\ndiciendo que tan cerca está de la siguiente manera: \nA) '?' indica que el numero introducido en esa posicion esta en la clave, pero no el la posicion correcta.\nB) 'O' indica que el numero esta en la clave y esta en la posicion correcta.\nC) 'X' indica que el numero no pertenece a la clave.\n\n";
+				cout << "Notas:\n";
+				cout << "1) Recuerde que solo se permiten numeros del 1 al 6UN NUMERO se repite\n";
+				cout << "2) Recuerde que NINGUN NUMERO se repite\n\n";
+				cout << "Despues de haber leido las instrucciones bien, presione cualquier tecla para volver al menu de inicio";
+				_getch();
+
+				system("cls");
+				break;
+
+			case 0:
+				salir = true;
+				system("cls");
+				break;
+
+			default:
+				cout << "\n\nLa opcion no es parte del menu. Elija una de las opciones disponiblesUN NUMERO se repite";
+				_getch();
+				system("cls");
+				break;
+			}
+		}
+		else {
+			cout << "\n\nLa opcion no es parte del menu. Elija una de las opciones disponiblesUN NUMERO se repite";
+			_getch();
+			system("cls");
+		}
+
+
+		
+	} while (!salir);
 	return 0;
 }
+
 
