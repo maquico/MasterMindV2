@@ -51,7 +51,6 @@ int ValidarClave(string intento, string claveActual, int i) {
 	}
 			
 }
-
 void GoToXY(int x, int y)
 {
 	HANDLE hCon;
@@ -98,8 +97,6 @@ string GenerarNumRand() {
 	}
 	return clave;
 }
-
-
 
 int Jugar(string clave) {
 
