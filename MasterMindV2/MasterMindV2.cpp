@@ -189,8 +189,6 @@ int Jugar(string clave) {
 					z--;
 					break;
 				default:
-					cout << "Duro\n\n";
-
 					GoToXY(tabla1x, tablay);
 					cout << cIntento;
 					claveActual += cIntento;
@@ -253,7 +251,7 @@ int main()
 	//5a64
 	do {
 		system("cls");
-		cout << "Bienvenido al Juego MasterMinf. En este juego desafiara tu mente. Elige una de las siguientes opciones: \n\n1) Ir al Juego.\n2) Ver las Instrucciones.\n0) Para Salir\n\nOpcion Elegida: ";
+		cout << "Bienvenido al Juego MasterMind. En este juego desafiara tu mente. Elige una de las siguientes opciones: \n\n1) Ir al Juego.\n2) Ver las Instrucciones.\n0) Para Salir\n\nOpcion Elegida: ";
 		cin >> opcion;
 		if (isdigit(opcion[0]) && opcion.length() == 1) {
 			int op = stoi(opcion);
@@ -282,9 +280,9 @@ int main()
 
 			case 2:
 				system("cls");
-				cout << "En el juego MasterMind, se busca adivinar una contraseña de 4 digitos, donde ninguno se repite, y el programa le va\ndiciendo que tan cerca está de la siguiente manera: \nA) '?' indica que el numero introducido en esa posicion esta en la clave, pero no el la posicion correcta.\nB) 'O' indica que el numero esta en la clave y esta en la posicion correcta.\nC) 'X' indica que el numero no pertenece a la clave.\n\n";
+				cout << "En el juego MasterMind, se busca adivinar una contraseña de 4 digitos, donde ninguno se repite, y el programa le va\ndiciendo que tan cerca esta de la siguiente manera: \nA) '?' indica que el numero introducido en esa posicion esta en la clave, pero no el la posicion correcta.\nB) 'O' indica que el numero esta en la clave y esta en la posicion correcta.\nC) 'X' indica que el numero no pertenece a la clave.\n\n";
 				cout << "Notas:\n";
-				cout << "1) Recuerde que solo se permiten numeros del 1 al 6UN NUMERO se repite\n";
+				cout << "1) Recuerde que solo se permiten numeros del 1 al 6\n";
 				cout << "2) Recuerde que NINGUN NUMERO se repite\n\n";
 				cout << "Despues de haber leido las instrucciones bien, presione cualquier tecla para volver al menu de inicio";
 				_getch();
@@ -298,20 +296,18 @@ int main()
 				break;
 
 			default:
-				cout << "\n\nLa opcion no es parte del menu. Elija una de las opciones disponiblesUN NUMERO se repite";
+				cout << "\n\nLa opcion no es parte del menu. Elija una de las opciones disponibles";
 				_getch();
 				system("cls");
 				break;
 			}
 		}
 		else {
-			cout << "\n\nLa opcion no es parte del menu. Elija una de las opciones disponiblesUN NUMERO se repite";
+			cout << "\n\nLa opcion no es parte del menu. Elija una de las opciones disponibles";
 			_getch();
 			system("cls");
 		}
 
-
-		
 	} while (!salir);
 	return 0;
 }
