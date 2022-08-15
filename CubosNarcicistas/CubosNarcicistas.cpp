@@ -22,7 +22,7 @@ int main()
 
 	bool close = false, hayLetra=false;
 	do {
-		char numero[256];
+		
 		string opcion;
 		system("cls");
 		printf("Bienvenido al programa que le dira los numeros narcisistas entre 100 y 999.\n\n");
@@ -71,15 +71,15 @@ int main()
 				break;
 			case 2:
 				system("cls");
-				cout << "Los numeros narcisistas entre el 100 y el 99 son: \n\n";
+				cout << "Los numeros narcisistas entre el 100 y el 999 son: \n\n";
 				for (int i = 100; i < 1000; i++)
 				{
 					string numero = to_string(i);
 					int suma = 0;
 
 					for (int j = 0; j < 3; j++)
-					{
-						char digito[1] = { numero[j] };
+					{						// numero es 100
+						char digito[1] = {numero[j]};
 						suma += pow(atoi(digito), 3);
 					}
 					if (suma == i)

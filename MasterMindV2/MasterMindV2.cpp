@@ -1,7 +1,8 @@
 
 /*
 * ENUNCIADO: TAREA 1. MASTERMIND BEGINNERS
-* ASUNTO:
+* ASUNTO: ESTE PROGRAMA ES EL JUEGO MASTERMIND BEGINNER EN EL 
+QUE DEBE ADIVINAR UNA CLAVE COMPUESTA DE CUATRO DIGITOS QUE VAN DEL 1 AL 6
 *
 AUTORES: ANGEL MORENO ID:1104666
 *        GLEIDY ESPINAL ID:1104225
@@ -12,11 +13,9 @@ AUTORES: ANGEL MORENO ID:1104666
 */
 
 #include <iostream>
-#include <cstdlib>
 #include <string>
 #include <Windows.h>
 #include <conio.h>
-// #include "TextTable.h"
 
 using namespace std;
 
@@ -196,7 +195,7 @@ int Jugar(string clave) {
 					break;
 				}
 			}
-			for (int k = 0; k < 4; k++) // clave 6513           intento 6415
+			for (int k = 0; k < 4; k++) // Generacion de la pista
 			{
 				for (int l = 0; l < 4 && !numDentro; l++)
 				{
@@ -245,10 +244,8 @@ int main()
 	string numRand;
 	bool salir = false;
 	numRand = GenerarNumRand();
-	//Jugar(numRand);
 	string opcion = "0";
 	
-	//5a64
 	do {
 		system("cls");
 		cout << "Bienvenido al Juego MasterMind. En este juego desafiara tu mente. Elige una de las siguientes opciones: \n\n1) Ir al Juego.\n2) Ver las Instrucciones.\n0) Para Salir\n\nOpcion Elegida: ";
