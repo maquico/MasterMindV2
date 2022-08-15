@@ -33,7 +33,7 @@ int main()
 		printf("Opcion elejida: ");
 		cin >> opcion;
 		
-		for ( int i = 0;  i < opcion.length();  i++)
+		for ( int i = 0;  i < opcion.length() && !hayLetra;  i++)
 		{
 			if (!isdigit(opcion[i]))
 			{
