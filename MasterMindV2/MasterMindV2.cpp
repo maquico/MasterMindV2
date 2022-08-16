@@ -18,7 +18,7 @@ AUTORES: ANGEL MORENO ID:1104666
 #include <conio.h>
 
 using namespace std;
-
+int puntuacion = 11;
 int ValidarClave(string intento, string claveActual, int i) {
 	
 	
@@ -226,7 +226,7 @@ int Jugar(string clave) {
 			tabla1x = 18;
 			tabla2x = 59;
 			tablay += 2;
-			
+			puntuacion--;
 		}
 		else
 		{
@@ -261,7 +261,7 @@ int main()
 				{
 					GoToXY(0, 31);
 					cout << "\n\n!!!!!!!!!Felicidades!!!!!!!!!";
-					cout << "\nHa Adivinado la Clave.";
+					cout << "\nHa Adivinado la Clave.\nSu puntuacion fue: "<< puntuacion << ".";
 					cout << "\nPresione cualquier letra para continuar.";
 					_getch();
 				}
