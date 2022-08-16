@@ -21,7 +21,7 @@ using namespace std;
 
 int puntuacion = 11;//Variable Global que graba la puntuacion del usuario.
 
-int ValidarClave(string intento, string claveActual, int i) {
+int ValidarClave(string intento, string claveActual, int i) {//La funcion valida la entrada del usuario, pasandolo por varios filtros
 	
 	
 	// 0 indica longitud erronea, 1 indica repetidos, 2 indica que hay letras, 3 indica que la clave tiene numeros diferentes de 1, 2, 3, 4, 5, 6
@@ -29,18 +29,18 @@ int ValidarClave(string intento, string claveActual, int i) {
 	
 	bool limitenumeros = false;
 	
-	if (intento.length() != 1)
+	if (intento.length() != 1)//Verifica que solo sea 1 caracter 
 	{
 		return 0;
 	}
-	else if (!isdigit(intento[0])) {
+	else if (!isdigit(intento[0])) {//Verifica que solo sean digitos
 		return 2;
 	}
-	else if (stoi(intento) < 0 || stoi(intento) > 6)
+	else if (stoi(intento) < 0 || stoi(intento) > 6)//Verifica que solo sean digitos del 1 al 6
 	{
 		return 3;
 	}
-	else if (i!=0 )
+	else if (i!=0 ) //Verifica que no repitan numeros en la clave que esta introduciendo el usuario
 	{
 		for (int j = 0; j <= i; j++)
 		{
@@ -63,7 +63,7 @@ void GoToXY(int x, int y)
 	SetConsoleCursorPosition(hCon, dwPos);
 }
 string GenerarNumRand() {
-
+	//La funcion genenra un numero random para que sea la clave, que tenga numeros del 1 al 6 y que ninguno se repita
 	int random;
 	bool duplicado = false;
 	string numActual, clave;
@@ -75,8 +75,8 @@ string GenerarNumRand() {
 		if (i != 0) // luego de que se genere el segundo numero
 		{
 			for (int j = 0; j < i; j++)
-			{
-				if (clave[j] == numActual[0]) //compara si un numero es igual a otro que ya este en la clave
+			{//Bucle para comparar si un numero es igual a los otros que ya estan en la clave
+				if (clave[j] == numActual[0]) 
 				{
 					duplicado = true;
 				}
