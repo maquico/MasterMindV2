@@ -18,7 +18,9 @@ AUTORES: ANGEL MORENO ID:1104666
 #include <conio.h>
 
 using namespace std;
-int puntuacion = 11;
+
+int puntuacion = 11;//Variable Global que graba la puntuacion del usuario.
+
 int ValidarClave(string intento, string claveActual, int i) {
 	
 	
