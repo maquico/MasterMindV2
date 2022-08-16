@@ -116,7 +116,7 @@ int Jugar(string clave) {
 	cout << "|-------------------------------------------------------------------------------|\n";
 	cout << "| Calificacion |  A  |  B  |  C  |  D  |  || | Intentos |  A  |  B  |  C  |  D  |\n"; 
 
-	for (int i = 10, m=9; i >0; i--, m-=2)
+	for (int i = 10, m=9; i >0; i--, m-=2)//Bucle para imprimir la tabla
 	{	
 		if (i != 10 && i!=1) {
 			cout << "|    0" << (i) << "        |     |     |     |     |  || |    0" << (i-m) << "    |     |     |     |     |\n";
