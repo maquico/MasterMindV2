@@ -51,7 +51,7 @@ int ValidarClave(string intento, string claveActual, int i) {
 			
 }
 void GoToXY(int x, int y)
-{
+{//La función coloca el cursor para imprimir en el lugar que queramos.
 	HANDLE hCon;
 	hCon = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -277,7 +277,7 @@ int main()
 
 			case 2:
 				system("cls");
-				cout << "En el juego MasterMind, se busca adivinar una contraseña de 4 digitos, donde ninguno se repite, y el programa le va\ndiciendo que tan cerca esta de la siguiente manera: \nA) '?' indica que el numero introducido en esa posicion esta en la clave, pero no el la posicion correcta.\nB) 'O' indica que el numero esta en la clave y esta en la posicion correcta.\nC) 'X' indica que el numero no pertenece a la clave.\n\n";
+				cout << "En el juego MasterMind, se busca adivinar una contraseña de 4 digitos, donde ninguno se repite, y el programa le va\ndiciendo que tan cerca esta de la siguiente manera: \nA) 'F' indica que el numero introducido en esa posicion esta en la clave, pero no el la posicion correcta.\nB) 'C' indica que el numero esta en la clave y esta en la posicion correcta.\nC) 'X' indica que el numero no pertenece a la clave.\n\n";
 				cout << "Notas:\n";
 				cout << "1) Recuerde que solo se permiten numeros del 1 al 6\n";
 				cout << "2) Recuerde que NINGUN NUMERO se repite\n\n";
