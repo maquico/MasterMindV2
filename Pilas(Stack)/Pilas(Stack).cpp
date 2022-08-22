@@ -47,7 +47,7 @@ void Pop(Node *&stack, int &data) { // Esta vez Pasamos el dato por referencia
 // El aux sirve como un envase para guardar el nodo top. Sirve para tener una referencia hacia eso nodo en todo momento y poderlo eliminar.
 
 void Alerta(string mensaje) {
-    cout << mensaje;
+    cout <<"\n" << mensaje;
     cout << "\nPresione cualquier tecla para continuar\n";
     _getch();
 }
