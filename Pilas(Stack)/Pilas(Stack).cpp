@@ -58,6 +58,7 @@ int main() {
     bool run = true, hayLetra;
     string op;
     int data;
+    string input;
 
     while(run) {
         system("cls");
@@ -73,10 +74,6 @@ int main() {
             {
                 hayLetra = true;
             }
-            else
-            {
-                hayLetra = false;
-            }
         }
         
         if (!hayLetra)
@@ -84,9 +81,23 @@ int main() {
             switch (stoi(op)) {
             case 1:
                 cout << "Ingrese el numero para agregar a la pila: ";
-                cin >> data;
-                Push(stack, data);
-                Alerta("Elemento agregado con exito");
+                cin >> input;
+
+                for (int i = 0; i < input.length() && !hayLetra; i++)
+                {
+                    if (!isdigit(input[i]))
+                    {
+                        hayLetra = true;
+                        Alerta("No introduzca letras");
+                    }
+                }
+                if (!hayLetra) 
+                {
+                    data = stoi(input);
+                    Push(stack, data);
+                    Alerta("Elemento agregado con exito");
+                }
+              
                 break;
 
             case 2:
