@@ -88,7 +88,7 @@ int main() {
                     if (!isdigit(input[i]))
                     {
                         hayLetra = true;
-                        Alerta("No introduzca letras");
+                        
                     }
                 }
                 if (!hayLetra) 
@@ -96,6 +96,10 @@ int main() {
                     data = stoi(input);
                     Push(stack, data);
                     Alerta("Elemento agregado con exito");
+                }
+                else
+                {
+                    Alerta("No introduzca letras");
                 }
               
                 break;
