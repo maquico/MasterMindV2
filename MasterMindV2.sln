@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CubosNarcicistas", "CubosNa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pilas(Stack)", "Pilas(Stack)\Pilas(Stack).vcxproj", "{57544024-C016-4C2D-A8AC-A9F70D6B615D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Colas(Queues)", "Colas(Queues)\Colas(Queues).vcxproj", "{CE7857BF-757C-46EC-86FB-05F3FB758FAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{57544024-C016-4C2D-A8AC-A9F70D6B615D}.Release|x64.Build.0 = Release|x64
 		{57544024-C016-4C2D-A8AC-A9F70D6B615D}.Release|x86.ActiveCfg = Release|Win32
 		{57544024-C016-4C2D-A8AC-A9F70D6B615D}.Release|x86.Build.0 = Release|Win32
+		{CE7857BF-757C-46EC-86FB-05F3FB758FAE}.Debug|x64.ActiveCfg = Debug|x64
+		{CE7857BF-757C-46EC-86FB-05F3FB758FAE}.Debug|x64.Build.0 = Debug|x64
+		{CE7857BF-757C-46EC-86FB-05F3FB758FAE}.Debug|x86.ActiveCfg = Debug|Win32
+		{CE7857BF-757C-46EC-86FB-05F3FB758FAE}.Debug|x86.Build.0 = Debug|Win32
+		{CE7857BF-757C-46EC-86FB-05F3FB758FAE}.Release|x64.ActiveCfg = Release|x64
+		{CE7857BF-757C-46EC-86FB-05F3FB758FAE}.Release|x64.Build.0 = Release|x64
+		{CE7857BF-757C-46EC-86FB-05F3FB758FAE}.Release|x86.ActiveCfg = Release|Win32
+		{CE7857BF-757C-46EC-86FB-05F3FB758FAE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
