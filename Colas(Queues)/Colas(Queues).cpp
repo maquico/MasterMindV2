@@ -32,16 +32,19 @@ bool Empty_Queue(Node* front)
 }
 
 //Funcion para agregar un elemento a la cola.
-void Enqueue(Node*& front, Node*& back, int n, int prioridad=0)
+void Enqueue(Node*& front, Node*& back, int n, int prioridad)
 {
     bool hayPrioridad = false;
-    int contador = 1;
+    int contador = 0;
     Node* new_Node = new Node();
     Node* aux = new Node();
     new_Node->data = n;
     new_Node->next = NULL;
     aux = front;
 
+    //Evita que entre a la operacion de prioridad
+    if (prioridad > 16 )aux = NULL;
+      
     //ENQUEUE con prioridad
     if (aux!=NULL)
     {
@@ -49,11 +52,18 @@ void Enqueue(Node*& front, Node*& back, int n, int prioridad=0)
         {
             aux = aux->next;
             contador++;
+            if (contador == 1) aux = front;
         }
-        if (contador == prioridad)
+        if (contador == prioridad && prioridad !=0)
         {
             new_Node->next = aux->next;
             aux->next = new_Node;
+            hayPrioridad = true;
+        }
+        else if (prioridad == 0) 
+        {
+            new_Node->next = aux;
+            front = new_Node;
             hayPrioridad = true;
         }
     }
@@ -63,11 +73,7 @@ void Enqueue(Node*& front, Node*& back, int n, int prioridad=0)
         front = new_Node;
         back = new_Node;
     }
-    else if (prioridad)
-    {
-
-    }
-    else
+    else if (!hayPrioridad)
     {
         back->next = new_Node;
         back = new_Node;
