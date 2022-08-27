@@ -32,22 +32,46 @@ bool Empty_Queue(Node* front)
 }
 
 //Funcion para agregar un elemento a la cola.
-void Enqueue(Node*& front, Node*& back, int n)
+void Enqueue(Node*& front, Node*& back, int n, int prioridad=0)
 {
+    bool hayPrioridad = false;
+    int contador = 1;
     Node* new_Node = new Node();
+    Node* aux = new Node();
     new_Node->data = n;
     new_Node->next = NULL;
+    aux = front;
 
+    //ENQUEUE con prioridad
+    if (aux!=NULL)
+    {
+        while (contador<prioridad && aux->next!=NULL)
+        {
+            aux = aux->next;
+            contador++;
+        }
+        if (contador == prioridad)
+        {
+            new_Node->next = aux->next;
+            aux->next = new_Node;
+            hayPrioridad = true;
+        }
+    }
+    //ENQUEUE normal
     if (Empty_Queue(front))
     {
         front = new_Node;
+        back = new_Node;
+    }
+    else if (prioridad)
+    {
+
     }
     else
     {
         back->next = new_Node;
+        back = new_Node;
     }
-
-    back = new_Node;
 }
 
 //Funcion para eliminar un elemento de la cola
@@ -116,11 +140,13 @@ int main()
 
                 
             case 1:          //Enqueue
-                cout << "Ingrese el numero para agregar a la pila: ";
+                cout << "Ingrese el numero para agregar a la cola: ";
                 cin >> data;
-                if (!BuscarLetras(data))
+                cout << "Ingrese el nivel de prioridad del elemento ";
+                cin >> priority;
+                if (!BuscarLetras(data) && !BuscarLetras(priority))
                 {
-                    Enqueue(front, back, stoi(data));
+                    Enqueue(front, back, stoi(data), stoi(priority));
                     Alerta("El elemento ", " fue agregado con exito", stoi(data));
                 }
                 else
