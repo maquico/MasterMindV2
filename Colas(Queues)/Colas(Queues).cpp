@@ -69,18 +69,17 @@ void Enqueue(Node*& front, Node*& back, int n, int prioridad)
         }
     }
     //ENQUEUE normal
-    if (Empty_Queue(front))
+    if (Empty_Queue(front)) //Si la cola esta vacia tanto el frente como el final apuntan al nuevo nodo
     {
         front = new_Node;
         back = new_Node;
     }
-    else if (!hayPrioridad)
+    else if (!hayPrioridad) //Si la cola no esta vacia y no hay prioridad, se coloca al final de la cola
     {
         back->next = new_Node;
         back = new_Node;
     }
 }
-
 
 //Funcion para eliminar un elemento de la cola
 void Dequeue(Node*& front, Node*& back, int& n)
@@ -134,7 +133,7 @@ int main()
         cout << "1) Enqueue (Insertar en la cola)\n";
         cout << "2) Dequeue (Eliminar de la cola)\n";
         cout << "3) Mostrar Cola\n";
-        cout << "0) Salir del programa\n";
+        cout << "0) Salir del programa\n\n";
         cin >> op;
 
         if (!BuscarLetras(op))
@@ -148,7 +147,7 @@ int main()
 
                 
             case 1:          //Enqueue
-                cout << "Ingrese el numero para agregar a la cola: ";
+                cout << "\nIngrese el numero para agregar a la cola: ";
                 cin >> data;
                 cout << "Ingrese el nivel de prioridad del elemento ";
                 cin >> priority;
