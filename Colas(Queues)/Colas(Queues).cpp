@@ -35,7 +35,7 @@ bool Empty_Queue(Node* front)
 void Enqueue(Node*& front, Node*& back, int n, int prioridad)
 {
     bool hayPrioridad = false;
-    int contador = 0;
+    int contador = 1;
     Node* new_Node = new Node();
     Node* aux = new Node();
     new_Node->data = n;
@@ -48,19 +48,20 @@ void Enqueue(Node*& front, Node*& back, int n, int prioridad)
     //ENQUEUE con prioridad
     if (aux!=NULL)
     {
-        while (contador<prioridad && aux->next!=NULL)
+        while (contador<prioridad && aux->next!=NULL) //Movemos al auxiliar a la posicion que indique la prioridad
         {
             aux = aux->next;
             contador++;
-            if (contador == 1) aux = front;
         }
-        if (contador == prioridad && prioridad !=0)
-        {
+        /*Si aux->next es NULL es que nuestra prioridad es igual o mayor
+       ` a la cantidad de elementos en la cola, entonces el nuevo elemento va al final*/
+        if (contador == prioridad && aux->next !=NULL) //Insertamos nuevo elemento a la derecha del auxiliar. 
+        {                                              
             new_Node->next = aux->next;
             aux->next = new_Node;
             hayPrioridad = true;
         }
-        else if (prioridad == 0) 
+        else if (prioridad == 0) //Insertamos nuevo elemento a la izquierda del auxiliar, al principio de la cola
         {
             new_Node->next = aux;
             front = new_Node;
@@ -79,6 +80,7 @@ void Enqueue(Node*& front, Node*& back, int n, int prioridad)
         back = new_Node;
     }
 }
+
 
 //Funcion para eliminar un elemento de la cola
 void Dequeue(Node*& front, Node*& back, int& n)
