@@ -48,7 +48,6 @@ void Enqueue(Node*& front, Node*& back, int n)
     }
 
     back = new_Node;
-    cout << "Elemento " << n << " agregado a la cola correctamente " << endl;
 }
 
 //Funcion para eliminar un elemento de la cola
@@ -79,9 +78,12 @@ bool BuscarLetras(string entrada)
     return hayLetras;
 }
 
-
-void Alerta(string mensaje) {
-    cout << "\n" << mensaje;
+void Alerta(string iniMensaje= "", string finMensaje = "", int variable = NULL) {
+    cout << "\n" << iniMensaje;
+    if (variable!=NULL)
+    {
+        cout << variable << finMensaje;
+    }
     cout << "\nPresione cualquier tecla para continuar\n";
     _getch();
 }
@@ -89,11 +91,13 @@ void Alerta(string mensaje) {
 int main()
 {
     Node* front = NULL, *back = NULL;
-    int data;
+    string data;
+    int papelera=0;
     string op="", priority="";
     bool run = true, hayLetras = false;
     while (run)
     {
+        system("cls");
         cout << "Bienvenido al programa de Colas\n\n";
         cout << "1) Enqueue (Insertar en la cola)\n";
         cout << "2) Dequeue (Eliminar de la cola)\n";
@@ -101,28 +105,68 @@ int main()
         cout << "0) Salir del programa\n";
         cin >> op;
 
-        if (!BuscarLetras)
+        if (!BuscarLetras(op))
         {
             switch (stoi(op))
             {
-                //Cerrar
-            case 0:                                       
+                
+            case 0:          //Cerrar                             
+                run = false;
                 break;
 
-                //Enqueue
-            case 1:
+                
+            case 1:          //Enqueue
                 cout << "Ingrese el numero para agregar a la pila: ";
                 cin >> data;
-                break;
-                //Dequeue
-            case 2:
-                break;
-                //Mostrar cola
-            case 3:
-                break;
-            default:
+                if (!BuscarLetras(data))
+                {
+                    Enqueue(front, back, stoi(data));
+                    Alerta("El elemento ", " fue agregado con exito", stoi(data));
+                }
+                else
+                {
+                    Alerta("No introduzca letras, la cola solo contiene valores enteros");
+                }
                 break;
 
+                
+            case 2:            //Dequeue
+                if (front != NULL)
+                {
+                    Dequeue(front, back, papelera);
+                    Alerta("El elemento ", " fue eliminado con exito", papelera);
+                }
+                else 
+                {
+                    Alerta("La cola esta vacia :(");
+                }
+                break;
+                
+            case 3:             //Mostrar cola
+                if (front!=NULL)
+                {
+                    while (front != NULL)
+                    {
+                        Dequeue(front, back, papelera);
+                        if (front!=NULL)
+                        {
+                            cout << papelera << " , ";
+                        }
+                        else
+                        {
+                            cout << papelera << ".";
+                        }
+                    }
+                    Alerta();
+                }
+                else
+                {
+                    Alerta("La cola esta vacia :(");
+                }
+                break;
+            default:
+                Alerta("El numero ingresado no es parte del menu");
+                break;
             }
         }
         else
