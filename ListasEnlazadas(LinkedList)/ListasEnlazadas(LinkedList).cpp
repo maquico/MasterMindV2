@@ -54,7 +54,6 @@ void Mostrar(Nodo* lista) {
     }
 }
 
-
 int main()
 {
     Nodo* lista = NULL; 

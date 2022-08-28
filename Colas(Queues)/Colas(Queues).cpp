@@ -24,16 +24,10 @@ struct Node
     Node* next;
 };
 
-//Funcion para determinar si la cola esta vacia.
-bool Empty_Queue(Node* front)
-{
-    return(front == NULL) ? true : false;
-}
-
 //Funcion para agregar un elemento a la cola.
 void Enqueue(Node*& front, Node*& back, int n, int prioridad)
 {
-    bool hayPrioridad = false;
+    bool hayPrioridad = false, entradaInvalida = true;
     int contador = 1;
     Node* new_Node = new Node();
     Node* aux = new Node();
@@ -41,11 +35,11 @@ void Enqueue(Node*& front, Node*& back, int n, int prioridad)
     new_Node->next = NULL;
     aux = front;
 
-    //Evita que entre a la operacion de prioridad
-    if (prioridad > 16 )aux = NULL;
-      
+    //Evita que revise prioridad si la ingresada es mayor que 16
+    (prioridad > 16) ? entradaInvalida = true : entradaInvalida=false;
+
     //ENQUEUE con prioridad
-    if (aux!=NULL)
+    if (aux!=NULL && !entradaInvalida)
     {
         while (contador<prioridad && aux->next!=NULL) //Movemos al auxiliar a la posicion que indique la prioridad
         {
@@ -68,7 +62,7 @@ void Enqueue(Node*& front, Node*& back, int n, int prioridad)
         }
     }
     //ENQUEUE normal
-    if (Empty_Queue(front)) //Si la cola esta vacia tanto el frente como el final apuntan al nuevo nodo
+    if (aux==NULL)
     {
         front = new_Node;
         back = new_Node;
