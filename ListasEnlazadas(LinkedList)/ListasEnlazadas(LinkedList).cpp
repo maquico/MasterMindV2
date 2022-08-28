@@ -81,6 +81,14 @@ void BuscarElemento(Nodo *lista, int entrada) { //Se le pasa el nodo lista de ti
     }
 }
 
+// Función para eliminar lista completa
+void eliminarLista(Nodo *& lista, int &n) {
+    Nodo* aux = lista;
+    n = aux->dato;
+    lista = aux->siguiente;
+    delete aux;
+}
+
 int main()
 {
     Nodo* lista = NULL; 
