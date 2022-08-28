@@ -21,18 +21,42 @@ struct Nodo {
 };
 
 void Insertar(Nodo*& lista, int entrada) {
-    Nodo* aux1 = lista, *aux2, *nuevoNodo = new Nodo();
+    Nodo* aux1 = lista;
+    Nodo* aux2 = new Nodo();
+    Nodo *nuevoNodo = new Nodo();
 
-    
-    //al inicio de la lista
-    lista = nuevoNodo;
+        while (aux1!=NULL && aux1->dato < entrada)
+        {
+            aux2 = aux1;
+            aux1 = aux1->siguiente;
+        }
+        if (lista==aux1)
+        {
+            lista = nuevoNodo;
+            
+        }
+        else
+        {
+            aux2->siguiente = nuevoNodo;
+        } 
+        nuevoNodo->siguiente = aux1;  
+        nuevoNodo->dato = entrada;
 }
 
+void Mostrar(Nodo* lista) {
+    Nodo* actual = new Nodo();
+    actual = lista;
+    while (actual!=NULL)
+    {
+        if (actual->siguiente != NULL) cout << actual->dato << " , ";
+        else cout << actual->dato << ".";
+        actual = actual->siguiente;
+    }
+}
 
 
 int main()
 {
-    
-    
+    Nodo* lista = NULL; 
 }
 
