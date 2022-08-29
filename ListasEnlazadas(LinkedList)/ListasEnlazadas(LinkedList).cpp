@@ -44,6 +44,8 @@ void Insertar(Nodo*& lista, int entrada) {
     nuevoNodo->siguiente = aux1;
     nuevoNodo->dato = entrada;
 }
+
+//Eliminar Un Elemento de la Lista
 int EliminarUnElemento(Nodo*& first, int dato)
 {
     Nodo* aux = first;
