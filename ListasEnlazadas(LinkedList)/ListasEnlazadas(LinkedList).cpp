@@ -44,6 +44,50 @@ void Insertar(Nodo*& lista, int entrada) {
     nuevoNodo->siguiente = aux1;
     nuevoNodo->dato = entrada;
 }
+int EliminarUnElemento(Nodo*& first, int dato)
+{
+    Nodo* aux = first;
+    int i = 0;
+    bool founded = false;
+
+    if (aux == NULL)
+    {
+        return 1;
+    }
+    else {
+        if (aux->dato == dato) founded = true;
+
+        while (aux->siguiente != NULL && !founded)
+        {
+            if (aux->siguiente->dato == dato) {
+                founded = true;
+            }
+            else
+            {
+                aux = aux->siguiente;
+            }
+            i++;
+        }
+
+        if (founded && i != 0)
+        {
+            Nodo* eliminar = aux->siguiente;
+            aux->siguiente = eliminar->siguiente;
+            delete(eliminar);
+            return 2;
+        }
+        else if (founded && i == 0)
+        {
+            first = aux->siguiente;
+            delete(aux);
+            return 2;
+        }
+        else
+        {
+            return 3;
+        }
+    }
+}
 
 void Mostrar(Nodo* lista) {
     Nodo* actual = new Nodo();
@@ -143,7 +187,7 @@ int main()
         cout << "4) Buscar en la lista" << endl;
         cout << "5) Eliminar toda la lista" << endl;
         cout << "0) Salir" << endl;
-
+        cout << "\nOpcion Elegida: ";
         cin >> op;
 
         if (!BuscarLetras(op))
@@ -170,10 +214,30 @@ int main()
                 break;
 
             case 2:          // Eliminar
-                cout << "";
-
+                cout << "\n\nIngrese el dato que quiere eliminar: ";
+                cin >> input;
+                if (!BuscarLetras(input)) {
+                    switch (EliminarUnElemento(lista, stoi(input)))
+                    {
+                    case 1:
+                        cout << "\n\nLa lista esta vacia. No puede eliminar elementos.";
+                        break;
+                    case 2:
+                        cout << "\n\nEl elemento " << input << " se ha eliminado.";
+                        break;
+                    case 3:
+                        cout << "\n\nEl elemento no existe en la lista. Intente con Otro Elemento";
+                        break;
+                    }
+                }
+                else 
+                {
+                    cout << "\nNo introduzca letras";
+                }
+                cout << "\nPresione cualquier tecla para Continuar";
+                _getch();
+                system("cls");
                 break;
-
             case 3:          // Mostrar
                 cout << "Esta es la lista enlazada de elementos: " << endl;
                 if (lista != NULL) {
