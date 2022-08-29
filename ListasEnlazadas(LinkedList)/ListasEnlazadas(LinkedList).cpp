@@ -35,7 +35,6 @@ void Insertar(Nodo*& lista, int entrada) {
     if (lista == aux1)
     {
         lista = nuevoNodo;
-
     }
     else
     {
