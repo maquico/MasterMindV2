@@ -51,26 +51,18 @@ int EliminarUnElemento(Nodo*& first, int dato)
     Nodo* aux = first;
     int i = 0;
     bool founded = false;
-
     if (aux == NULL)
     {
         return 1;
     }
     else {
         if (aux->dato == dato) founded = true;
-
         while (aux->siguiente != NULL && !founded)
         {
-            if (aux->siguiente->dato == dato) {
-                founded = true;
-            }
-            else
-            {
-                aux = aux->siguiente;
-            }
+            if (aux->siguiente->dato == dato) founded = true;
+            else  aux = aux->siguiente;
             i++;
         }
-
         if (founded && i != 0)
         {
             Nodo* eliminar = aux->siguiente;
@@ -84,10 +76,7 @@ int EliminarUnElemento(Nodo*& first, int dato)
             delete(aux);
             return 2;
         }
-        else
-        {
-            return 3;
-        }
+        else return 3;
     }
 }
 
@@ -219,13 +208,14 @@ int main()
                 cout << "\n\nIngrese el dato que quiere eliminar: ";
                 cin >> input;
                 if (!BuscarLetras(input)) {
-                    switch (EliminarUnElemento(lista, stoi(input)))
+                    dato = stoi(input);
+                    switch (EliminarUnElemento(lista, dato))
                     {
                     case 1:
                         cout << "\n\nLa lista esta vacia. No puede eliminar elementos.";
                         break;
                     case 2:
-                        cout << "\n\nEl elemento " << input << " se ha eliminado.";
+                        cout << "\n\nEl elemento " << dato << " se ha eliminado.";
                         break;
                     case 3:
                         cout << "\n\nEl elemento no existe en la lista. Intente con Otro Elemento";
