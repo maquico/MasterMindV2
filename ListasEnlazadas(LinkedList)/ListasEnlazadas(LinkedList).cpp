@@ -51,10 +51,8 @@ int EliminarUnElemento(Nodo*& first, int dato)
     Nodo* aux = first;
     int i = 0;
     bool founded = false;
-    if (aux == NULL)
-    {
-        return 1;
-    }
+    if (aux == NULL) return 1; // Verificar que la lista no este vacia.
+
     else {
         if (aux->dato == dato) founded = true;
         while (aux->siguiente != NULL && !founded)
@@ -63,20 +61,20 @@ int EliminarUnElemento(Nodo*& first, int dato)
             else  aux = aux->siguiente;
             i++;
         }
-        if (founded && i != 0)
+        if (founded && i != 0)// Si se esta eliminando un elemento diferente del primero de la lista
         {
             Nodo* eliminar = aux->siguiente;
             aux->siguiente = eliminar->siguiente;
             delete(eliminar);
             return 2;
         }
-        else if (founded && i == 0)
+        else if (founded && i == 0)// Si se esta eliminando un elemento el primer elemento de la lista
         {
             first = aux->siguiente;
             delete(aux);
             return 2;
         }
-        else return 3;
+        else return 3; // Si no se encuentra el elemento a eliminar
     }
 }
 
@@ -266,7 +264,12 @@ int main()
                     Alerta("La lista esta vacia");
                 }
                 break;
+
+            default:
+                Alerta("El numero no forma parte de las opciones del menu");
+                break;
             }
+           
         }
     }
 }
