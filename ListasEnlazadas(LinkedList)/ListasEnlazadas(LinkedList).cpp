@@ -132,7 +132,6 @@ void EliminarLista(Nodo*& lista, int& n) {
 }
 
 // Validaciones
-
 bool BuscarLetras(string entrada)
 {
     bool hayLetras = false;
@@ -143,9 +142,6 @@ bool BuscarLetras(string entrada)
     return hayLetras;
 }
 
-
-
-
 void Alerta(string iniMensaje = "", string finMensaje = "", int variable = NULL) {
     cout << "\n" << iniMensaje;
     if (variable != NULL)
@@ -155,10 +151,6 @@ void Alerta(string iniMensaje = "", string finMensaje = "", int variable = NULL)
     cout << "\nPresione cualquier tecla para continuar\n";
     _getch();
 }
-
-
-
-
 
 int main()
 {
@@ -261,7 +253,6 @@ int main()
                     EliminarLista(lista, dato);
                     Alerta("La lista se ha eliminado con exito");
                 }
-
                 else {
                     Alerta("La lista esta vacia");
                 }

@@ -27,7 +27,7 @@ struct Node
 //Funcion para agregar un elemento a la cola.
 void Enqueue(Node*& front, Node*& back, int n, int prioridad)
 {
-    bool hayPrioridad = false, entradaInvalida = true;
+    bool hayPrioridad = true;
     int contador = 1;
     Node* new_Node = new Node();
     Node* aux = new Node();
@@ -36,10 +36,10 @@ void Enqueue(Node*& front, Node*& back, int n, int prioridad)
     aux = front;
 
     //Evita que revise prioridad si la ingresada es mayor que 16
-    (prioridad > 16) ? entradaInvalida = true : entradaInvalida=false;
+    (prioridad > 16 || prioridad < 0 ) ? hayPrioridad = false : hayPrioridad = true;
 
     //ENQUEUE con prioridad
-    if (aux!=NULL && !entradaInvalida)
+    if (aux!=NULL && hayPrioridad)
     {
         while (contador<prioridad && aux->next!=NULL) //Movemos al auxiliar a la posicion que indique la prioridad
         {
@@ -48,24 +48,24 @@ void Enqueue(Node*& front, Node*& back, int n, int prioridad)
         }
         /*Si aux->next es NULL es que nuestra prioridad es igual o mayor
        ` a la cantidad de elementos en la cola, entonces el nuevo elemento va al final*/
-        if (contador == prioridad && aux->next !=NULL) //Insertamos nuevo elemento a la derecha del auxiliar. 
-        {                                              
+        if (contador == prioridad && aux->next != NULL) //Insertamos nuevo elemento a la derecha del auxiliar. 
+        {
             new_Node->next = aux->next;
             aux->next = new_Node;
-            hayPrioridad = true;
         }
         else if (prioridad == 0) //Insertamos nuevo elemento a la izquierda del auxiliar, al principio de la cola
         {
             new_Node->next = aux;
             front = new_Node;
-            hayPrioridad = true;
         }
+        else hayPrioridad = false;
     }
     //ENQUEUE normal
     if (aux==NULL)
     {
         front = new_Node;
         back = new_Node;
+
     }
     else if (!hayPrioridad) //Si la cola no esta vacia y no hay prioridad, se coloca al final de la cola
     {
@@ -97,7 +97,7 @@ bool BuscarLetras(string entrada)
     bool hayLetras = false;
     for (int i = 0; i < entrada.length() && !hayLetras; i++)
     {
-        (isdigit(entrada[i]) == false) ? hayLetras=true : false;
+        if (entrada[0]!='-') (isdigit(entrada[i]) == false) ? hayLetras = true : false;
     }
     return hayLetras;
 }
@@ -127,45 +127,39 @@ int main()
         cout << "2) Dequeue (Eliminar de la cola)\n";
         cout << "3) Mostrar Cola\n";
         cout << "0) Salir del programa\n\n";
+        cout << "NOTA: Existe prioridad de 0 a 16, cualquier entero fuera de rango se tomara como prioridad nula\n\n";
+        cout << "Opcion elegida: ";
         cin >> op;
 
         if (!BuscarLetras(op))
         {
             switch (stoi(op))
             {
-                
             case 0:          //Cerrar                             
                 run = false;
                 break;
 
-                
             case 1:          //Enqueue
                 cout << "\nIngrese el numero para agregar a la cola: ";
                 cin >> data;
-                cout << "Ingrese el nivel de prioridad del elemento ";
+
+                cout << "Ingrese el nivel de prioridad del elemento: ";
                 cin >> priority;
                 if (!BuscarLetras(data) && !BuscarLetras(priority))
                 {
                     Enqueue(front, back, stoi(data), stoi(priority));
                     Alerta("El elemento ", " fue agregado con exito", stoi(data));
                 }
-                else
-                {
-                    Alerta("No introduzca letras, la cola solo contiene valores enteros");
-                }
+                else Alerta("No introduzca letras");
                 break;
 
-                
             case 2:            //Dequeue
                 if (front != NULL)
                 {
                     Dequeue(front, back, papelera);
                     Alerta("El elemento ", " fue eliminado con exito", papelera);
                 }
-                else 
-                {
-                    Alerta("La cola esta vacia :(");
-                }
+                else  Alerta("La cola esta vacia :(");
                 break;
                 
             case 3:             //Mostrar cola
@@ -174,30 +168,17 @@ int main()
                     while (front != NULL)
                     {
                         Dequeue(front, back, papelera);
-                        if (front!=NULL)
-                        {
-                            cout << papelera << " , ";
-                        }
-                        else
-                        {
-                            cout << papelera << ".";
-                        }
+                        (front!=NULL)? cout << papelera << " , " : cout << papelera << ".";
                     }
                     Alerta();
                 }
-                else
-                {
-                    Alerta("La cola esta vacia :(");
-                }
+                else Alerta("La cola esta vacia :(");
                 break;
             default:
                 Alerta("El numero ingresado no es parte del menu");
                 break;
             }
         }
-        else
-        {
-            Alerta("No introduzca letras");
-        }
+        else Alerta("No introduzca letras");  
     }
 }
