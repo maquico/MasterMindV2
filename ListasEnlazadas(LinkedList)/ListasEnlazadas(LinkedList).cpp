@@ -52,7 +52,7 @@ int EliminarUnElemento(Nodo*& first, int dato)
     if (aux == NULL) return 1; // Verificar que la lista no este vacia.
 
     else {
-        if (aux->dato == dato) founded = true;
+        if (aux->dato == dato) founded = true;//Verificar si es el primer nodo
         while (aux->siguiente != NULL && !founded)
         {
             if (aux->siguiente->dato == dato) founded = true;
