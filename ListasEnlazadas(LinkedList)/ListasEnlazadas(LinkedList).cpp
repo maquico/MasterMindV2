@@ -134,7 +134,7 @@ bool BuscarLetras(string entrada)
     bool hayLetras = false;
     for (int i = 0; i < entrada.length() && !hayLetras; i++)
     {
-        (isdigit(entrada[i]) == false) ? hayLetras = true : false;
+        if (entrada[0] != '-') (isdigit(entrada[i]) == false) ? hayLetras = true : false;
     }
     return hayLetras;
 }

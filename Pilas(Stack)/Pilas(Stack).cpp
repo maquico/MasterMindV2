@@ -68,13 +68,12 @@ int main() {
         cin >> op;
         cout<< "\n";
         
-        for (int i = 0; i < op.length() && !hayLetra; i++)
-        {
-            if (!isdigit(op[i]))
+        
+            for (int i = 0; i < op.length() && !hayLetra; i++)
             {
-                hayLetra = true;
+                if (op[0] != '-') (isdigit(op[i]) == false) ? hayLetra = true : false;
             }
-        }
+           
         
         if (!hayLetra)
         {
