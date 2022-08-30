@@ -13,7 +13,6 @@ AUTORES: ANGEL MORENO ID:1104666
 #include <string>
 #include <conio.h> // getch
 #include <iostream>
-#include <cctype> // tolower :D
 
 using namespace std;
 
@@ -119,10 +118,9 @@ void BuscarElemento(Nodo* lista, int entrada) { //Se le pasa el nodo lista de ti
 }
 
 // Función para eliminar lista completa
-void EliminarLista(Nodo*& lista, int& n) {
+void EliminarLista(Nodo*& lista) {
     while (lista != NULL) {
         Nodo* aux = lista;
-        n = aux->dato;
         lista = aux->siguiente;
         delete aux;
     }
@@ -245,9 +243,9 @@ int main()
                 }
                 break;
 
-            case 5:
+            case 5: //Eliminar Lista
                 if (lista != NULL) {
-                    EliminarLista(lista, dato);
+                    EliminarLista(lista);
                     Alerta("La lista se ha eliminado con exito");
                 }
                 else {
@@ -255,7 +253,7 @@ int main()
                 }
                 break;
 
-            default:
+            default: //Cuando el Numero Ingresado no esta en el menu
                 Alerta("El numero no forma parte de las opciones del menu");
                 break;
             }
