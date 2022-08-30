@@ -31,11 +31,11 @@ void Insertar(Nodo*& lista, int entrada) {
         aux2 = aux1;
         aux1 = aux1->siguiente;
     }
-    if (lista == aux1)
+    if (lista == aux1)//Coloca el nuevo nodo al inicio de la lista
     {
         lista = nuevoNodo;
     }
-    else
+    else//Coloca el nuevo nodo a la derecha del auxiliar 2
     {
         aux2->siguiente = nuevoNodo;
     }
