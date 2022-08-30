@@ -71,7 +71,7 @@ int main() {
         
             for (int i = 0; i < op.length() && !hayLetra; i++)
             {
-                if (op[0] != '-') (isdigit(op[i]) == false) ? hayLetra = true : false;
+               (isdigit(op[i]) == false) ? hayLetra = true : false;
             }
            
         
@@ -84,11 +84,7 @@ int main() {
 
                 for (int i = 0; i < input.length() && !hayLetra; i++)
                 {
-                    if (!isdigit(input[i]))
-                    {
-                        hayLetra = true;
-                        
-                    }
+                    if (input[0] != '-') (isdigit(input[i]) == false) ? hayLetra = true : false;
                 }
                 if (!hayLetra) 
                 {
