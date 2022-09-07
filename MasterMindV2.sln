@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Colas(Queues)", "Colas(Queu
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ListasEnlazadas(LinkedList)", "ListasEnlazadas(LinkedList)\ListasEnlazadas(LinkedList).vcxproj", "{73EC686E-381A-472D-852A-52F8D85E1FB8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FrecuenciaCaracter", "FrecuenciaCaracter\FrecuenciaCaracter.vcxproj", "{916324CC-98FA-493C-82D3-45E91A97C32E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{73EC686E-381A-472D-852A-52F8D85E1FB8}.Release|x64.Build.0 = Release|x64
 		{73EC686E-381A-472D-852A-52F8D85E1FB8}.Release|x86.ActiveCfg = Release|Win32
 		{73EC686E-381A-472D-852A-52F8D85E1FB8}.Release|x86.Build.0 = Release|Win32
+		{916324CC-98FA-493C-82D3-45E91A97C32E}.Debug|x64.ActiveCfg = Debug|x64
+		{916324CC-98FA-493C-82D3-45E91A97C32E}.Debug|x64.Build.0 = Debug|x64
+		{916324CC-98FA-493C-82D3-45E91A97C32E}.Debug|x86.ActiveCfg = Debug|Win32
+		{916324CC-98FA-493C-82D3-45E91A97C32E}.Debug|x86.Build.0 = Debug|Win32
+		{916324CC-98FA-493C-82D3-45E91A97C32E}.Release|x64.ActiveCfg = Release|x64
+		{916324CC-98FA-493C-82D3-45E91A97C32E}.Release|x64.Build.0 = Release|x64
+		{916324CC-98FA-493C-82D3-45E91A97C32E}.Release|x86.ActiveCfg = Release|Win32
+		{916324CC-98FA-493C-82D3-45E91A97C32E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
