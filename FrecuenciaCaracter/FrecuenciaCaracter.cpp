@@ -15,16 +15,17 @@ AUTORES: ANGEL MORENO ID:1104666
 #include <iostream>
 #include <fstream> //manejo de archivos
 #include <conio.h> //getch
-
+#include <locale>
+#include <Windows.h>
 
 using namespace std;
 
 struct Nodo {
-    char dato;
+    unsigned char dato;
     Nodo* siguiente;
 };
 
-void Insertar(Nodo*& lista, char caracter) {
+void Insertar(Nodo*& lista, unsigned char caracter) {
     Nodo* aux1 = lista;
     Nodo* aux2 = new Nodo();
     Nodo* nuevoNodo = new Nodo();
@@ -55,12 +56,14 @@ void Mostrar(Nodo* lista) {
         else cout << actual->dato << ".";
         actual = actual->siguiente;
     }
-    _getch();
+
 }
 
-int ContarPalabras(string ruta) 
+
+
+int ContarPalabras(string ruta)
 {
-    ifstream archivo(ruta);
+    ifstream archivo(ruta.c_str());
     string palabra;
     int contador = 0;
 
@@ -77,32 +80,117 @@ int ContarPalabras(string ruta)
     return contador;
 }
 
-void recogerCaracteres(Nodo *&lista, string ruta)
+bool acentos(unsigned char& letra)
 {
-    ifstream archivo(ruta);
-    char caracter;
+    int asciiLetra = int(letra);
+    switch (asciiLetra)
+    {
+    case 225:
+        letra = 'a';
+        return true;
+        break;
+
+    case 233:
+        letra = 'e';
+        return true;
+        break;
+
+    case 237:
+        letra = 'i';
+        return true;
+        break;
+
+    case 243:
+        letra = 'o';
+        return true;
+        break;
+
+    case 250:
+        letra = 'u';
+        return true;
+        break;
+
+    case 255:
+        return false;
+        break;
+
+    default:
+        return true;
+        break;
+    }
+}
+
+
+void recogerCaracteres(Nodo*& lista, string ruta, float& contadorEspacios)
+{
+    ifstream archivo(ruta.c_str());
+    unsigned char caracter;
+    bool valido = true;
 
     if (archivo.is_open())
     {
         while (archivo.good())
         {
             caracter = archivo.get();
-            Insertar(lista, caracter);
+            contadorEspacios++;
+            if (isalpha(caracter))
+            {
+                caracter = tolower(caracter);
+                valido = acentos(caracter);
+                if (valido) Insertar(lista, caracter);
+            }
         }
     }
     archivo.close();
 }
 
+void frecuenciaChars(Nodo* lista, string ruta, float espaciosTotales)
+{
+    Nodo* aux1 = new Nodo();
+    Nodo* aux2 = new Nodo();
+    aux1 = NULL;
+    aux2 = lista;
+    float repeticiones = 1;
+    float porcentaje;
+    bool finLista = false;
+
+    while (aux2 != NULL && !finLista)
+    {
+        if (aux2->siguiente != NULL)
+        {
+            while (aux2->dato == aux2->siguiente->dato)
+            {
+                repeticiones++;
+                aux2 = aux2->siguiente;
+            }
+        }
+        porcentaje = ((repeticiones / espaciosTotales) * 100);
+        cout << aux2->dato << ": (" << repeticiones << "/" << espaciosTotales << ") --> " << porcentaje << "%" << endl;
+
+        repeticiones = 1;
+        if (aux2->siguiente != NULL) {
+            aux1 = aux2;
+            aux2 = aux2->siguiente;
+        }
+        else finLista = true;
+    }
+}
 
 int main()
 {
+    setlocale(LC_ALL, "spanish");
+    SetConsoleCP(1252);
+    SetConsoleOutputCP(1252);
+
     Nodo* lista = NULL;
     string ruta = "PruebaChar.txt";
-   
+    float espaciosTotales = 0;
+
     cout << "La cantidad de palabras en el archivo es: " << ContarPalabras(ruta) << endl;
-    recogerCaracteres(lista, ruta);
+    recogerCaracteres(lista, ruta, espaciosTotales);
     Mostrar(lista);
-   
-    
+    cout << endl;
+    frecuenciaChars(lista, ruta, espaciosTotales);
 }
+
 
