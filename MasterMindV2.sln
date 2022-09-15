@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ListasEnlazadas(LinkedList)
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FrecuenciaCaracter", "FrecuenciaCaracter\FrecuenciaCaracter.vcxproj", "{916324CC-98FA-493C-82D3-45E91A97C32E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArbolesBinarioBusqueda", "ArbolesBinarioBusqueda\ArbolesBinarioBusqueda.vcxproj", "{73BFA268-787E-4077-B2CC-6E852453BE98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -71,6 +73,14 @@ Global
 		{916324CC-98FA-493C-82D3-45E91A97C32E}.Release|x64.Build.0 = Release|x64
 		{916324CC-98FA-493C-82D3-45E91A97C32E}.Release|x86.ActiveCfg = Release|Win32
 		{916324CC-98FA-493C-82D3-45E91A97C32E}.Release|x86.Build.0 = Release|Win32
+		{73BFA268-787E-4077-B2CC-6E852453BE98}.Debug|x64.ActiveCfg = Debug|x64
+		{73BFA268-787E-4077-B2CC-6E852453BE98}.Debug|x64.Build.0 = Debug|x64
+		{73BFA268-787E-4077-B2CC-6E852453BE98}.Debug|x86.ActiveCfg = Debug|Win32
+		{73BFA268-787E-4077-B2CC-6E852453BE98}.Debug|x86.Build.0 = Debug|Win32
+		{73BFA268-787E-4077-B2CC-6E852453BE98}.Release|x64.ActiveCfg = Release|x64
+		{73BFA268-787E-4077-B2CC-6E852453BE98}.Release|x64.Build.0 = Release|x64
+		{73BFA268-787E-4077-B2CC-6E852453BE98}.Release|x86.ActiveCfg = Release|Win32
+		{73BFA268-787E-4077-B2CC-6E852453BE98}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

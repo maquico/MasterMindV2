@@ -56,9 +56,7 @@ void Mostrar(Nodo* lista) {
         else cout << actual->dato << ".";
         actual = actual->siguiente;
     }
-
 }
-
 
 
 int ContarPalabras(string ruta)
