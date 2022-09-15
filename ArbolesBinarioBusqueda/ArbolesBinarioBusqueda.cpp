@@ -23,3 +23,11 @@ struct Nodo {
 	Nodo* der;
 };
 
+Nodo* CrearNodo(int entrada) {
+	Nodo* nuevoNodo = new Nodo();
+	nuevoNodo->dato = entrada;
+	nuevoNodo->der = NULL;
+	nuevoNodo->izq = NULL;
+
+	return nuevoNodo;
+}
