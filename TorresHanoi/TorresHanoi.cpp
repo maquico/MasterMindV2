@@ -61,7 +61,8 @@ void DeterminarTorreColores(int Torre)//Cambia el Texto de las Torres de Numeros
 	switch (Torre)
 	{
 	case 1:
-		SetConsoleTextAttribute(hconsole, 4);
+		SetConsoleTextAttribute(hconsole, 4);//Cambio el color del texto que de imprime en la Consola. El primer parametro es
+											 //la consola declarada al inicio y el segundo es el color
 		cout << "Torre A";
 		SetConsoleTextAttribute(hconsole, 7);
 		break;
