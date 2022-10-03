@@ -176,15 +176,15 @@ void frecuenciaChars(NodoT* lista, string ruta, float espaciosTotales)
 
 int main()
 {
-    setlocale(LC_ALL, "spanish");
-    SetConsoleCP(1252);
+    setlocale(LC_ALL, "spanish"); //idioma local
+    SetConsoleCP(1252);           //Cambiar Code Page de la consola para mostrar caracteres en español		
     SetConsoleOutputCP(1252);
 
     NodoT* lista = NULL;
     string ruta = "PruebaChar.txt";
     float espaciosTotales = 0;
 
-    cout << "La cantidad de palabras en el archivo es: " << ContarPalabras(ruta) << endl;
+    cout << "La cantidad de palábras en el archivo es: " << ContarPalabras(ruta) << endl;
     recogerCaracteres(lista, ruta, espaciosTotales);
     Mostrar(lista);
     cout << endl;
