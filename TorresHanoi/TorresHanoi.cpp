@@ -42,19 +42,20 @@ bool ValidarAnillos(int &anillos) {
 		}
 		else
 		{
-			cout << "Cantidad de anillos no válida";
+			cout << "\nCantidad de anillos no valida";
+			cout << "\n\nPresione cualquier tecla para volver a insertar anillos\n";
+			_getch();
 			return false;
 		}
 }
-								//1     //3     //2
-void TorresHanoi(int anillos, int origen, int destino, int auxiliar, long double &cont) {
+								//1           //3       //2
+void TorresHanoi(int anillos, int origen, int destino, int auxiliar, unsigned long long &cont) {
 
 	if (anillos>0)
 	{
 		TorresHanoi(anillos - 1, origen, auxiliar, destino, cont);
-		cout << "\nSe movio el anillo " << anillos << " desde la torre " << origen << " hasta la torre " << destino;
+		cout << "\nPaso #"<< cont << " Se movio el anillo " << anillos << " desde la torre " << origen << " hasta la torre " << destino;
 		cont++;
-
 		TorresHanoi(anillos - 1, auxiliar, destino, origen, cont);
 	}
 	return;
@@ -62,7 +63,7 @@ void TorresHanoi(int anillos, int origen, int destino, int auxiliar, long double
 
 int main() {
 
-	long double cont = 0;
+	unsigned long long cont = 1;
 	int anillos = 0;
 	bool anillosValidos = false;
 	bool salir = false;
@@ -71,7 +72,11 @@ int main() {
 	
 	do
 	{
-		cout << "\nBienvenido a las torres de Hanoi, que desea hacer?";
+		cont = 1;
+		system("cls");
+		cout << "---Bienvenido a las torres de Hanoi, que desea hacer?---";
+		cout << "\n\n [1] Calcular pasos";
+		cout << "\n\n [0] Salir del programa\n";
 		cin >> opcion;
 		int nOpcion = ValidarEntrada(opcion);
 
@@ -83,21 +88,26 @@ int main() {
 			break;
 
 		case 1:
-			
 			do
 			{
-				cout << "\nInserte el numero de anillos";
+				system("cls");
+				cout << "\nInserte el numero de anillos\n";
 				cin >> sAnillos;
 				anillos = ValidarEntrada(sAnillos);
 				anillosValidos = ValidarAnillos(anillos);
 			} while (!anillosValidos);
 
 			TorresHanoi(anillos, 1, 3, 2, cont);
-			cout << "\n\nEl numero de pasos fue: " << cont;
+			cout << "\n\nEl numero de pasos fue: " << cont-1;
+
+			cout << "\n\nPresione cualquier tecla para volver al menu\n";
+			_getch();
 			break;
 
 		default:
-			cout << "Error. Opcion no válida";
+			cout << "\nError. Opcion no valida";
+			cout << "\n\nPresione cualquier tecla para volver al menu\n";
+			_getch();
 			break;
 		}
 	} while (!salir);
