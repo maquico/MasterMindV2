@@ -245,7 +245,6 @@ int main()
 	srand(time(NULL));
 	string numRand;
 	bool salir = false;
-	numRand = GenerarNumRand();
 	string opcion = "0";
 	
 	do {
@@ -258,6 +257,7 @@ int main()
 			switch (op)
 			{
 			case 1:
+				numRand = GenerarNumRand();
 				system("cls");
 				if (Jugar(numRand) == 1)
 				{
@@ -275,6 +275,7 @@ int main()
 					cout << "\nPresione cualquier letra para continuar.";
 					_getch();
 				}
+				puntuacion = 11;
 				break;
 
 			case 2:

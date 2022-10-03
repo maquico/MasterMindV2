@@ -71,7 +71,7 @@ int main() {
 	
 	do
 	{
-		cout << "\nBienvenido a las torres de Hanoi, que desea hacer?";
+		cout << "\nBienvenido a las torres de Hanoi, que desea hacer?: ";
 		cin >> opcion;
 		int nOpcion = ValidarEntrada(opcion);
 
@@ -86,7 +86,7 @@ int main() {
 			
 			do
 			{
-				cout << "\nInserte el numero de anillos";
+				cout << "\nInserte el numero de anillos: ";
 				cin >> sAnillos;
 				anillos = ValidarEntrada(sAnillos);
 				anillosValidos = ValidarAnillos(anillos);
