@@ -18,15 +18,15 @@ using namespace std;
 
 //Estructura de la pila
 
-struct Node {
+struct NodeQ {
     int data; // recibe un dato
-    Node *next; // puntero de tipo nodo que apunta al siguiente elemento
+    NodeQ *next; // puntero de tipo nodo que apunta al siguiente elemento
 };
 
 // Función para agregar un elemento a la pila
 
-void Push(Node *&stack, int data) { // Se pasa por referencia porque la pila ira cambiando en la ejecución del progrma.
-    Node *newNode = new Node(); // crear el espacio en memoria del nuevo nodo.
+void Push(NodeQ *&stack, int data) { // Se pasa por referencia porque la pila ira cambiando en la ejecución del progrma.
+    NodeQ *newNode = new NodeQ(); // crear el espacio en memoria del nuevo nodo.
     newNode->data = data; // Rellenar el dato del nuevo nodo.
     newNode->next = stack; //Rellenar el puntero del nuevo nodo, apunta hacia el siguente elemento. 
     stack = newNode; // El puntero stack siempre apunta al elemento top, el nuevo nodo hara es el elemento top.
@@ -35,8 +35,8 @@ void Push(Node *&stack, int data) { // Se pasa por referencia porque la pila ira
 
 // Función para eliminar un elemento de la pila
 
-void Pop(Node *&stack, int &data) { // Esta vez Pasamos el dato por referencia
-    Node *aux = stack; // Crear variable auxiliar de tipo nodo e igualarlo a la pila para apuntar el elemento top de la pila.
+void Pop(NodeQ *&stack, int &data) { // Esta vez Pasamos el dato por referencia
+    NodeQ *aux = stack; // Crear variable auxiliar de tipo nodo e igualarlo a la pila para apuntar el elemento top de la pila.
     data = aux->data; // asignar el valor del dato del nodo "top" a la variable data. Guardamos el valor que se quiere eliminar
     stack = aux->next; // Apuntar la pila hacia el siguiente nodo 
     delete aux; //Borrar el nodo
@@ -54,7 +54,7 @@ void Alerta(string mensaje) {
 
 int main() {
 
-    Node *stack = NULL; // Inicializar el puntero pila para indicar que esta vacía.
+    NodeQ *stack = NULL; // Inicializar el puntero pila para indicar que esta vacía.
     bool run = true, hayLetra;
     string op;
     int data;

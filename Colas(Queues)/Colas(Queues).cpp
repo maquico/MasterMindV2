@@ -18,19 +18,19 @@ using namespace std;
 
 
 //Estructura de cada nodo de la cola
-struct Node
+struct NodeQ
 {
     int data;
-    Node* next;
+    NodeQ* next;
 };
 
 //Funcion para agregar un elemento a la cola.
-void Enqueue(Node*& front, Node*& back, int n, int prioridad)
+void Enqueue(NodeQ*& front, NodeQ*& back, int n, int prioridad)
 {
     bool hayPrioridad = true;
     int contador = 1;
-    Node* new_Node = new Node();
-    Node* aux = new Node();
+    NodeQ* new_Node = new NodeQ();
+    NodeQ* aux = new NodeQ();
     new_Node->data = n;
     new_Node->next = NULL;
     aux = front;
@@ -75,10 +75,10 @@ void Enqueue(Node*& front, Node*& back, int n, int prioridad)
 }
 
 //Funcion para eliminar un elemento de la cola
-void Dequeue(Node*& front, Node*& back, int& n)
+void Dequeue(NodeQ*& front, NodeQ*& back, int& n)
 {
     n = front->data;
-    Node* aux = front;
+    NodeQ* aux = front;
 
     if (front == back)
     {
@@ -114,7 +114,7 @@ void Alerta(string iniMensaje= "", string finMensaje = "", int variable = NULL) 
 
 int main()
 {
-    Node* front = NULL, *back = NULL;
+    NodeQ* front = NULL, *back = NULL;
     string data;
     int papelera=0;
     string op="", priority="";

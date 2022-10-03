@@ -16,15 +16,15 @@ AUTORES: ANGEL MORENO ID:1104666
 
 using namespace std;
 
-struct Nodo {
+struct NodoT {
     int dato;
-    Nodo* siguiente;
+    NodoT* siguiente;
 };
 
-void Insertar(Nodo*& lista, int entrada) {
-    Nodo* aux1 = lista;
-    Nodo* aux2 = new Nodo();
-    Nodo* nuevoNodo = new Nodo();
+void Insertar(NodoT*& lista, int entrada) {
+    NodoT* aux1 = lista;
+    NodoT* aux2 = new NodoT();
+    NodoT* nuevoNodo = new NodoT();
 
     while (aux1 != NULL && aux1->dato < entrada)
     {
@@ -44,9 +44,9 @@ void Insertar(Nodo*& lista, int entrada) {
 }
 
 //Eliminar Un Elemento de la Lista
-int EliminarUnElemento(Nodo*& first, int dato)
+int EliminarUnElemento(NodoT*& first, int dato)
 {
-    Nodo* aux = first;
+    NodoT* aux = first;
     int i = 0;
     bool founded = false;
     if (aux == NULL) return 1; // Verificar que la lista no este vacia.
@@ -61,7 +61,7 @@ int EliminarUnElemento(Nodo*& first, int dato)
         }
         if (founded && i != 0)// Si se esta eliminando un elemento diferente del primero de la lista
         {
-            Nodo* eliminar = aux->siguiente;
+            NodoT* eliminar = aux->siguiente;
             aux->siguiente = eliminar->siguiente;
             delete(eliminar);
             return 2;
@@ -76,8 +76,8 @@ int EliminarUnElemento(Nodo*& first, int dato)
     }
 }
 
-void Mostrar(Nodo* lista) {
-    Nodo* actual = new Nodo();
+void Mostrar(NodoT* lista) {
+    NodoT* actual = new NodoT();
     actual = lista;
     while (actual != NULL)
     {
@@ -88,10 +88,10 @@ void Mostrar(Nodo* lista) {
     _getch();
 }
 
-void BuscarElemento(Nodo* lista, int entrada) { //Se le pasa el nodo lista de tipo puntero (que representa el primer elemento de la lista) y se le pasa el dato buscar.
+void BuscarElemento(NodoT* lista, int entrada) { //Se le pasa el nodo lista de tipo puntero (que representa el primer elemento de la lista) y se le pasa el dato buscar.
 
     bool elementoExiste = false;
-    Nodo* actual = new Nodo(); //Se crea un nodo auxiliar que representara el nodo actual que se esta comparando con el dato a buscar.
+    NodoT* actual = new NodoT(); //Se crea un nodo auxiliar que representara el nodo actual que se esta comparando con el dato a buscar.
     actual = lista; // Se le asigna al nodo actual el nodo que representa el primer elemento de la lista.
 
     while (actual != NULL && actual->dato <= entrada) //Mientras el nodo actual sea diferente de nulo (no sea el que le sigue al ultimo nodo de la lista) y el dato del nodo actual sea menor o igual que el dato a buscar
@@ -118,9 +118,9 @@ void BuscarElemento(Nodo* lista, int entrada) { //Se le pasa el nodo lista de ti
 }
 
 // Función para eliminar lista completa
-void EliminarLista(Nodo*& lista) {
+void EliminarLista(NodoT*& lista) {
     while (lista != NULL) {
-        Nodo* aux = lista;
+        NodoT* aux = lista;
         lista = aux->siguiente;
         delete aux;
     }
@@ -149,7 +149,7 @@ void Alerta(string iniMensaje = "", string finMensaje = "", int variable = NULL)
 
 int main()
 {
-    Nodo* lista = NULL;
+    NodoT* lista = NULL;
     string op = "", input;
     bool run = true, hayLetras = false;
     int dato;

@@ -20,15 +20,15 @@ AUTORES: ANGEL MORENO ID:1104666
 
 using namespace std;
 
-struct Nodo {
+struct NodoT {
     unsigned char dato;
-    Nodo* siguiente;
+    NodoT* siguiente;
 };
 
-void Insertar(Nodo*& lista, unsigned char caracter) {
-    Nodo* aux1 = lista;
-    Nodo* aux2 = new Nodo();
-    Nodo* nuevoNodo = new Nodo();
+void Insertar(NodoT*& lista, unsigned char caracter) {
+    NodoT* aux1 = lista;
+    NodoT* aux2 = new NodoT();
+    NodoT* nuevoNodo = new NodoT();
 
     while (aux1 != NULL && aux1->dato < caracter)
     {
@@ -47,8 +47,8 @@ void Insertar(Nodo*& lista, unsigned char caracter) {
     nuevoNodo->dato = caracter;
 }
 
-void Mostrar(Nodo* lista) {
-    Nodo* actual = new Nodo();
+void Mostrar(NodoT* lista) {
+    NodoT* actual = new NodoT();
     actual = lista;
     while (actual != NULL)
     {
@@ -119,7 +119,7 @@ bool acentos(unsigned char& letra)
 }
 
 
-void recogerCaracteres(Nodo*& lista, string ruta, float& contadorEspacios)
+void recogerCaracteres(NodoT*& lista, string ruta, float& contadorEspacios)
 {
     ifstream archivo(ruta.c_str());
     unsigned char caracter;
@@ -142,10 +142,10 @@ void recogerCaracteres(Nodo*& lista, string ruta, float& contadorEspacios)
     archivo.close();
 }
 
-void frecuenciaChars(Nodo* lista, string ruta, float espaciosTotales)
+void frecuenciaChars(NodoT* lista, string ruta, float espaciosTotales)
 {
-    Nodo* aux1 = new Nodo();
-    Nodo* aux2 = new Nodo();
+    NodoT* aux1 = new NodoT();
+    NodoT* aux2 = new NodoT();
     aux1 = NULL;
     aux2 = lista;
     float repeticiones = 1;
@@ -180,7 +180,7 @@ int main()
     SetConsoleCP(1252);
     SetConsoleOutputCP(1252);
 
-    Nodo* lista = NULL;
+    NodoT* lista = NULL;
     string ruta = "PruebaChar.txt";
     float espaciosTotales = 0;
 
