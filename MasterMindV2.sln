@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArbolBinarioBusqueda2", "Ar
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TorresHanoi", "TorresHanoi\TorresHanoi.vcxproj", "{DBEBE033-CEAE-44C3-9AA9-7A07AA695F06}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JuegoDeLaReina", "JuegoDeLaReina\JuegoDeLaReina.vcxproj", "{8DC4A6D1-EB1F-4D67-A96A-7FBEEDFFDA9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -101,6 +103,14 @@ Global
 		{DBEBE033-CEAE-44C3-9AA9-7A07AA695F06}.Release|x64.Build.0 = Release|x64
 		{DBEBE033-CEAE-44C3-9AA9-7A07AA695F06}.Release|x86.ActiveCfg = Release|Win32
 		{DBEBE033-CEAE-44C3-9AA9-7A07AA695F06}.Release|x86.Build.0 = Release|Win32
+		{8DC4A6D1-EB1F-4D67-A96A-7FBEEDFFDA9A}.Debug|x64.ActiveCfg = Debug|x64
+		{8DC4A6D1-EB1F-4D67-A96A-7FBEEDFFDA9A}.Debug|x64.Build.0 = Debug|x64
+		{8DC4A6D1-EB1F-4D67-A96A-7FBEEDFFDA9A}.Debug|x86.ActiveCfg = Debug|Win32
+		{8DC4A6D1-EB1F-4D67-A96A-7FBEEDFFDA9A}.Debug|x86.Build.0 = Debug|Win32
+		{8DC4A6D1-EB1F-4D67-A96A-7FBEEDFFDA9A}.Release|x64.ActiveCfg = Release|x64
+		{8DC4A6D1-EB1F-4D67-A96A-7FBEEDFFDA9A}.Release|x64.Build.0 = Release|x64
+		{8DC4A6D1-EB1F-4D67-A96A-7FBEEDFFDA9A}.Release|x86.ActiveCfg = Release|Win32
+		{8DC4A6D1-EB1F-4D67-A96A-7FBEEDFFDA9A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

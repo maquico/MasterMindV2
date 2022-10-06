@@ -152,13 +152,13 @@ int main() {
 		system("cls");
 		cout << "---Bienvenido a las torres de Hanoi, que desea hacer?---";
 		cout << "\n\n [1] Calcular Pasos (Funcion con Colores)";
-		cout << "\n\n [2] Calcular Pasos (Funcion Más Eficiente)";
+		cout << "\n\n [2] Calcular Pasos (Funcion mas Eficiente)";
 		cout << "\n\n [0] Salir del programa\n";
 		cout << "\nOpcion Elegida: ";
 		cin >> opcion;
 		int nOpcion = ValidarEntrada(opcion);
 		int minutos;
-		int segundos;
+		double segundos;
 
 		switch (nOpcion)
 		{
